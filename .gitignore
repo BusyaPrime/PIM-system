@@ -1,0 +1,35 @@
+# System and IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Backend
+backend/vendor/
+backend/var/
+backend/.env.local
+backend/.env.*.local
+backend/phpunit.xml.dist
+backend/phpunit.result.cache
+!backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/apps/*/node_modules/
+frontend/packages/*/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+frontend/.pnp.*
+frontend/.yarn/*
+!frontend/.yarn/patches
+!frontend/.yarn/plugins
+!frontend/.yarn/releases
+!frontend/.yarn/sdks
+!frontend/.yarn/versions
+
+# General
+coverage/
+*.log
+*.lock
+!frontend/pnpm-lock.yaml
+!backend/composer.lock

@@ -1,0 +1,13 @@
+
+Mapping
+-------
+
+[critical] Error thrown while running command "doctrine:schema:validate". Message: "Lazy loading proxies require PHP 8.4 or higher."
+
+In Configuration.php line 669:
+                                                   
+  Lazy loading proxies require PHP 8.4 or higher.  
+                                                   
+
+doctrine:schema:validate [--em EM] [--skip-mapping] [--skip-sync] [--skip-property-types]
+

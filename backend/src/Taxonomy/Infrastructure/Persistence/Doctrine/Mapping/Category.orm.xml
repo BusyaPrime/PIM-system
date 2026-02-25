@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Taxonomy\Domain\Entity\Category" table="taxonomy_categories">
+        <id name="id" type="string" length="36">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="code" type="string" length="255" unique="true" />
+        <field name="parentId" type="string" length="36" nullable="true" />
+        
+        <!-- Nested Set properties for fast querying deep hierarchies -->
+        <field name="lft" type="integer" />
+        <field name="rgt" type="integer" />
+        <field name="lvl" type="integer" />
+
+        <indexes>
+            <index name="idx_category_nested_set" columns="lft,rgt,lvl"/>
+            <index name="idx_category_parent" columns="parent_id"/>
+        </indexes>
+    </entity>
+</doctrine-mapping>

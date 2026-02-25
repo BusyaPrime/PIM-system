@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Workflow\Domain\Entity\ProductWorkflow" table="workflow_product_states">
+        <id name="id" type="string" length="36">
+            <generator strategy="NONE"/>
+        </id>
+
+        <!-- Storing the foreign reference ID as a simple string due to bounded context separation.
+             We do not strictly map an ORM Relation to the Catalog Context to avoid tightly coupled monolith domains. -->
+        <field name="productId" type="string" length="36" unique="true" />
+        
+        <field name="currentState" type="string" length="50" />
+        <field name="updatedAt" type="datetime_immutable" />
+    </entity>
+
+</doctrine-mapping>

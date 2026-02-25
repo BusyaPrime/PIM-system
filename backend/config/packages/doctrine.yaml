@@ -1,0 +1,69 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        # server_version: '16'
+
+        profiling_collect_backtrace: '%kernel.debug%'
+    orm:
+        validate_xml_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        identity_generation_preferences:
+            Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
+        auto_mapping: true
+        mappings:
+            Enrichment:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Enrichment/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Enrichment\Domain\Entity'
+                alias: Enrichment
+            Workflow:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Workflow/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Workflow\Domain\Entity'
+                alias: Workflow
+            Jobs:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Jobs/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Jobs\Domain\Entity'
+                alias: Jobs
+            Audit:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Audit/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Audit\Domain\Entity'
+                alias: Audit
+            Taxonomy:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Taxonomy/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Taxonomy\Domain\Entity'
+                alias: Taxonomy
+            Catalog:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Catalog/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Catalog\Domain\Entity'
+                alias: Catalog
+            Attributes:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Attributes/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Attributes\Domain\Entity'
+                alias: Attributes
+            Shared:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Shared/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Shared\Infrastructure\Bus\Outbox'
+                alias: Shared
+            IdentityAndAccess:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/IdentityAndAccess/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\IdentityAndAccess\Domain\Entity'
+                alias: IdentityAndAccess

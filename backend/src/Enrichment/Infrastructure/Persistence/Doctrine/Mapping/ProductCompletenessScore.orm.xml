@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Enrichment\Domain\Entity\ProductCompletenessScore" table="enrichment_completeness_scores">
+        <id name="id" type="string" length="36">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="productId" type="string" length="36" />
+        <field name="channel" type="string" length="50" nullable="true" />
+        <field name="locale" type="string" length="10" nullable="true" />
+        <field name="ratio" type="float" />
+        <field name="calculatedAt" type="datetime_immutable" />
+
+        <indexes>
+            <index name="idx_score_product" columns="product_id,channel,locale"/>
+        </indexes>
+    </entity>
+</doctrine-mapping>

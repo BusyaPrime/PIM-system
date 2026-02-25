@@ -1,0 +1,2 @@
+Cannot autowire service "App\IdentityAndAccess\Domain\Policy\PolicyDecisionPoint": argument "$policies" of method "__construct()" is type-hinted "iterable", you should configure its value explicitly.
+/app/vendor/symfony/dependency-injection/Compiler/DefinitionErrorExceptionPass.php:48

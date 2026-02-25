@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Catalog\Domain\Entity\Product" table="catalog_products" inheritance-type="SINGLE_TABLE">
+        <discriminator-column name="dtype" type="string" length="30" />
+        <discriminator-map>
+            <discriminator-mapping value="product" class="App\Catalog\Domain\Entity\Product" />
+            <discriminator-mapping value="variant" class="App\Catalog\Domain\Entity\ProductVariant" />
+        </discriminator-map>
+
+        <id name="id" type="string" length="36">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="identifier" type="string" length="255" unique="true" />
+        <field name="familyId" type="string" length="36" nullable="true" />
+        <field name="isEnabled" type="boolean" />
+        <field name="created" type="datetime_immutable" />
+        <field name="updated" type="datetime_immutable" />
+
+        <indexes>
+            <index name="idx_product_family" columns="family_id"/>
+        </indexes>
+    </entity>
+
+</doctrine-mapping>
