@@ -1,4 +1,4 @@
-# 🚀 OmniPIM-MAX: Enterprise PIM System
+#  OmniPIM-MAX: Enterprise PIM System
 
 
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🏗 Архитектура под капотом (Backend)
+## Архитектура под капотом (Backend)
 
 Бэкач крутится на **PHP 8.4 + Symfony 7**. Но фишка не в фреймворке, а в том, как мы его закрутили.
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 🎨 Фронтенд (Frontend)
+##  Фронтенд (Frontend)
 
 
 - **Стек**: Next.js 14, React 18, TypeScript, TailwindCSS + Radix UI (@omnipim/ui).
@@ -49,7 +49,7 @@
 
 ---
 
-## 🔌 API & Интеграции
+##  API & Интеграции
 
 API — это не тупая CRUD-машина. Это шлюз для интеграции с внешним миром
 
